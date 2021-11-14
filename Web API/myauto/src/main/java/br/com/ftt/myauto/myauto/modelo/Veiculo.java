@@ -1,13 +1,31 @@
 package br.com.ftt.myauto.myauto.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Veiculo {
-	private int id;
-	private  String marca;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String marca;
 	private String modelo;
-	public int getId() {
+	
+	public Veiculo(String marca, String modelo) {
+		this.marca = marca;
+		this.modelo = modelo;
+	}
+	
+	public Veiculo() {
+		
+	}
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getMarca() {
