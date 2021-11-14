@@ -1,4 +1,4 @@
-package br.com.ftt.myauto.myauto.DAO;
+package br.com.ftt.myauto.myauto.infra.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
