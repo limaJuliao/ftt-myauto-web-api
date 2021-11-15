@@ -1,30 +1,32 @@
 package br.com.ftt.myauto.myauto.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.sql.Connection;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ftt.myauto.myauto.infra.repository.UsuarioRepository;
+import br.com.ftt.myauto.myauto.ConnectionFactory;
+import br.com.ftt.myauto.myauto.infra.DAO.UsuarioDAO;
 import br.com.ftt.myauto.myauto.modelo.Usuario;
 
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 	
-	@Autowired
-	private UsuarioRepository repository;
+	private Connection connection = new ConnectionFactory().recuperarConexao();		
+	private UsuarioDAO dao = new UsuarioDAO(connection);
 	
 	@PostMapping("/login")
-	public boolean login(Usuario login) {
-		Usuario usuario = repository.findByEmail(login.getEmail());
+	public Usuario login(Usuario login) {
+		
+		Usuario usuario = dao.obterUsuarioPorEmail(login.getEmail());
 		System.out.println(login.getSenha().equals(usuario.getSenha()));
-		return login.getSenha() == usuario.getSenha();
+		return usuario;
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/cadastrar")
 	public void cadastrar(Usuario usuario) {
-		System.out.println(usuario.toString());
-		repository.save(usuario);
+		dao.salvar(usuario);
 	}
 }

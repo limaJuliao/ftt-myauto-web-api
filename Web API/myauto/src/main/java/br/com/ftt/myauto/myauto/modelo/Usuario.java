@@ -1,26 +1,29 @@
 package br.com.ftt.myauto.myauto.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.List;
 
-@Entity
 public class Usuario {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String email;
 	private String senha;
-	
-	public Usuario(Long id, String nome, String email, String senha) {
-		this.id = id;
+	private List<Veiculo> veiculos;
+
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
+
+	public Usuario(String nome, String email, String senha) {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -30,7 +33,7 @@ public class Usuario {
 	}
 
 	public Usuario() {
-		
+
 	}
 
 	public Long getId() {
@@ -55,5 +58,5 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}	
+	}
 }
