@@ -8,15 +8,15 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
-	private List<Veiculo> veiculos;
+//	private List<Veiculo> veiculos;
 
-	public List<Veiculo> getVeiculos() {
-		return veiculos;
-	}
-
-	public void setVeiculos(List<Veiculo> veiculos) {
-		this.veiculos = veiculos;
-	}
+//	public List<Veiculo> getVeiculos() {
+//		return veiculos;
+//	}
+//
+//	public void setVeiculos(List<Veiculo> veiculos) {
+//		this.veiculos = veiculos;
+//	}
 
 	public Usuario(String nome, String email, String senha) {
 		this.nome = nome;

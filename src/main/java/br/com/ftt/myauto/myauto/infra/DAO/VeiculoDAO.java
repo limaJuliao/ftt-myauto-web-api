@@ -21,7 +21,6 @@ public class VeiculoDAO {
 		try {
 			List<Veiculo> veiculos = new ArrayList<Veiculo>();
 			String sql = String.format("SELECT * FROM VEICULO WHERE USUARIO_ID = '%s'", usuarioId);
-//			String sql = "select * from Veiculo";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
