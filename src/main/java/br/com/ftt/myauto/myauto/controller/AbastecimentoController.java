@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ftt.myauto.myauto.ConnectionFactory;
 import br.com.ftt.myauto.myauto.infra.DAO.AbastecimentoDAO;
 import br.com.ftt.myauto.myauto.modelo.Abastecimento;
+import br.com.ftt.myauto.myauto.modelo.Veiculo;
 
 @RestController
 @RequestMapping("/abastecimento")
@@ -19,8 +20,8 @@ public class AbastecimentoController {
 	private AbastecimentoDAO dao = new AbastecimentoDAO(connection);
 	
 	@PostMapping("/veiculo")
-	public List<Abastecimento> listarPorVeiculo(Abastecimento abastecimento){
-		return dao.listar(abastecimento.getId());
+	public List<Abastecimento> listarPorVeiculo(Veiculo veiculo){
+		return dao.listar(veiculo.getId());
 	}
 	
 	@PostMapping("/cadastrar")
