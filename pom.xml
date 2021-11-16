@@ -56,13 +56,6 @@
 		</dependency>
 		
 		
-		<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-webapp-maven-plugin -->
-		<dependency>
-		    <groupId>com.microsoft.azure</groupId>
-		    <artifactId>azure-webapp-maven-plugin</artifactId>
-		    <version>2.2.1</version>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -70,38 +63,36 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>			
+			</plugin>
 			
 			<plugin>
 			  <groupId>com.microsoft.azure</groupId>
 			  <artifactId>azure-webapp-maven-plugin</artifactId>
-			  <version>2.1.0</version>
+			  <version>1.14.0</version>
 			  <configuration>
-			  	<deploymentType>war</deploymentType>
 			    <schemaVersion>v2</schemaVersion>
-			    <subscriptionId>${70a4808a-833d-4896-98af-b1f5d6a14134}</subscriptionId>
-			    <resourceGroup>${MyAuto}</resourceGroup>
-			    <appName>${myauto-web-api}</appName>
-			    <region>${Brazil South}</region>
+			    <subscriptionId>70a4808a-833d-4896-98af-b1f5d6a14134</subscriptionId>
+			    <resourceGroup>spring-boot-1621580171863-rg</resourceGroup>
+			    <appName>spring-boot-1621580171863</appName>
 			    <pricingTier>P1v2</pricingTier>
+			    <region>Brazil South</region>
 			    <runtime>
 			      <os>Windows</os>
 			      <javaVersion>Java 11</javaVersion>
-			      <webContainer>TOMCAT 9.0</webContainer>
+			      <webContainer>Java SE</webContainer>
 			    </runtime>
 			    <deployment>
 			      <resources>
 			        <resource>
-			          <directory>${C:\home\site\wwwroot}/target</directory>
+			          <directory>${project.basedir}/target</directory>
 			          <includes>
-			            <include>*.war</include>
+			            <include>*.jar</include>
 			          </includes>
 			        </resource>
 			      </resources>
 			    </deployment>
 			  </configuration>
 			</plugin>
-			
 		</plugins>
 	</build>
 
