@@ -77,6 +77,7 @@
 			  <artifactId>azure-webapp-maven-plugin</artifactId>
 			  <version>2.1.0</version>
 			  <configuration>
+			  	<deploymentType>war</deploymentType>
 			    <schemaVersion>v2</schemaVersion>
 			    <subscriptionId>${70a4808a-833d-4896-98af-b1f5d6a14134}</subscriptionId>
 			    <resourceGroup>${MyAuto}</resourceGroup>
